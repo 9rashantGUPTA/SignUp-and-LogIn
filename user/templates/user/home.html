@@ -1,0 +1,12 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome to the Home page "<i>{{request.user}}</i>"</h1>
+<div class="d-flex justify-content-center links">
+    You can also <a href="{% url 'logout' %}" class="ml-2">Logout</a> this page
+</div>
+</body>
+</html>

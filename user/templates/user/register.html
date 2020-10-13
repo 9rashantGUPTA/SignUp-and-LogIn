@@ -1,0 +1,61 @@
+{% load crispy_forms_tags %}
+<html>
+
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+<h3>Register</h3>
+<form method="POST">
+    {% csrf_token %}
+
+ {{ form.username|as_crispy_field }}
+    {% if form.username.errors %}
+    {% for error in form.username.errors %}
+       <p class="invalid">{{ error }}</p>
+    {% endfor %}
+ {% endif %}
+<br>
+ {{ form.email|as_crispy_field }}
+    {% if form.email.errors %}
+    {% for error in form.email.errors %}
+       <p>{{ error }}</p>
+    {% endfor %}
+ {% endif %}
+<br>
+     {{ form.phone|as_crispy_field }}
+    {% if form.phone.errors %}
+    {% for error in form.phone.errors %}
+       <p>{{ error }}</p>
+    {% endfor %}
+ {% endif %}
+    <br>
+ {{ form.password1|as_crispy_field }}
+    {% if form.password1.errors %}
+    {% for error in form.password1.errors %}
+       <p>{{ error }}</p>
+    {% endfor %}
+ {% endif %}
+<br>
+ {{ form.password2|as_crispy_field }}
+    {% if form.password2.errors %}
+    {% for error in form.password2.errors %}
+       <p>{{ error }}</p>
+    {% endfor %}
+ {% endif %}
+
+    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+</form>
+
+<div class="mt-4">
+    <div class="d-flex justify-content-center links">
+        Already have an account? <a href="{% url 'login' %}" class="ml-2">login</a>
+    </div>
+</div>
+</body>
+</html>
